@@ -8,41 +8,46 @@ import Report from "./components/Report";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 
-
-// const API_URL = "http://localhost:4000/api/products";
+// Local API (only works in development)
+const API_URL = "http://localhost:4000/api/products";
 
 function App() {
-  // Use mock data for GitHub Pages
   const [products, setProducts] = useState([
+    // ✅ Mock data for GitHub Pages
     { id: 1, name: "Coffee", category: "Beverage", price: 20, quantity: 10 },
-    { id: 2, name: "Sandwich", category: "Food", price: 35, quantity: 5 }
+    { id: 2, name: "Sandwich", category: "Food", price: 35, quantity: 5 },
   ]);
-  const [activeSection, setActiveSection] = useState('Dashboard');
 
+  const [activeSection, setActiveSection] = useState("Dashboard");
 
-  // useEffect(() => {
-  //   fetch(API_URL)
-  //     .then(res => res.json())
-  //     .then(setProducts)
-  //     .catch(() => setProducts([]));
-  // }, []);
+  // ✅ Fetch only when running locally
+  useEffect(() => {
+    if (process.env.NODE_ENV === "development") {
+      fetch(API_URL)
+        .then((res) => res.json())
+        .then((data) => setProducts(data))
+        .catch(() => console.warn("Could not fetch API, using mock data"));
+    }
+  }, []);
 
   const addProduct = (product) => {
-    // For GitHub Pages, just update state
-    setProducts(products => [
+    setProducts((products) => [
       ...products,
-      { ...product, id: products.length ? Math.max(...products.map(p => p.id)) + 1 : 1 }
+      {
+        ...product,
+        id: products.length ? Math.max(...products.map((p) => p.id)) + 1 : 1,
+      },
     ]);
   };
 
   const updateProduct = (id, updated) => {
-    setProducts(products =>
-      products.map(p => p.id === id ? { ...updated } : p)
+    setProducts((products) =>
+      products.map((p) => (p.id === id ? { ...p, ...updated } : p))
     );
   };
 
   const deleteProduct = (id) => {
-    setProducts(products => products.filter(p => p.id !== id));
+    setProducts((products) => products.filter((p) => p.id !== id));
   };
 
   const handleDashboardNav = (section) => {
@@ -54,29 +59,36 @@ function App() {
       <Sidebar active={activeSection} onSelect={setActiveSection} />
       <main className="content">
         <h1 className="system-title">Wings Cafe Inventory System</h1>
-        {activeSection === 'Dashboard' && (
+
+        {activeSection === "Dashboard" && (
           <Dashboard onNavigate={handleDashboardNav} />
         )}
-        {activeSection === 'Inventory' && (
+
+        {activeSection === "Inventory" && (
           <section className="product-management">
             <h2>Inventory</h2>
             <ProductForm addProduct={addProduct} />
-            <ProductList products={products} updateProduct={updateProduct} deleteProduct={deleteProduct} />
+            <ProductList
+              products={products}
+              updateProduct={updateProduct}
+              deleteProduct={deleteProduct}
+            />
           </section>
         )}
-        {activeSection === 'Sales' && (
+
+        {activeSection === "Sales" && (
           <section className="product-management">
             <h2>Sales</h2>
             <ProductForm addProduct={addProduct} />
-            <ProductList 
-              products={products} 
-              updateProduct={updateProduct} 
+            <ProductList
+              products={products}
+              updateProduct={updateProduct}
               deleteProduct={deleteProduct}
               sellProduct={(id, currentQty) => {
                 const qty = Number(currentQty);
                 if (qty > 1) {
-                  const prod = products.find(p => p.id === id);
-                  updateProduct(id, { ...prod, quantity: qty - 1 });
+                  const prod = products.find((p) => p.id === id);
+                  updateProduct(id, { quantity: qty - 1 });
                 } else {
                   deleteProduct(id);
                 }
@@ -85,24 +97,28 @@ function App() {
             />
           </section>
         )}
-        {activeSection === 'Customers' && (
+
+        {activeSection === "Customers" && (
           <section style={{ marginTop: 32 }}>
             <h2>Customers</h2>
             <Customer />
           </section>
         )}
-        {activeSection === 'Reports' && (
+
+        {activeSection === "Reports" && (
           <section style={{ marginTop: 32 }}>
             <h2>Reports</h2>
             <Report products={products} />
           </section>
         )}
-        {activeSection === 'AboutUs' && (
+
+        {activeSection === "AboutUs" && (
           <section style={{ marginTop: 32 }}>
             <AboutUs />
           </section>
         )}
-        {activeSection === 'ContactUs' && (
+
+        {activeSection === "ContactUs" && (
           <section style={{ marginTop: 32 }}>
             <ContactUs />
           </section>
