@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Lihotetso901019383/static/css/main.3c9db53e.css",
-    "main.js": "/Lihotetso901019383/static/js/main.7be31424.js",
+    "main.js": "/Lihotetso901019383/static/js/main.b66d8bc8.js",
     "static/js/453.287cbb1b.chunk.js": "/Lihotetso901019383/static/js/453.287cbb1b.chunk.js",
     "index.html": "/Lihotetso901019383/index.html",
     "main.3c9db53e.css.map": "/Lihotetso901019383/static/css/main.3c9db53e.css.map",
-    "main.7be31424.js.map": "/Lihotetso901019383/static/js/main.7be31424.js.map",
+    "main.b66d8bc8.js.map": "/Lihotetso901019383/static/js/main.b66d8bc8.js.map",
     "453.287cbb1b.chunk.js.map": "/Lihotetso901019383/static/js/453.287cbb1b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c9db53e.css",
-    "static/js/main.7be31424.js"
+    "static/js/main.b66d8bc8.js"
   ]
 }
