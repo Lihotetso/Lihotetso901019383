@@ -1,0 +1,129 @@
+/* Center wrapper for dashboard cards to remove side space */
+.dashboard-center-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+/* Dashboard cards row and big card styles for main dashboard area */
+.dashboard-cards-row {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.dashboard-card.big-card {
+  flex: 1 1 200px;
+  min-width: 180px;
+  max-width: 240px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 12px;
+  padding: 28px 18px 22px 18px;
+  box-shadow: 0 4px 18px rgba(37,99,235,0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.dashboard-card.big-card:hover, .dashboard-card.big-card:focus {
+  box-shadow: 0 8px 32px rgba(37,99,235,0.18);
+  transform: translateY(-4px) scale(1.03);
+  filter: brightness(1.08);
+}
+.dashboard-card.inventory { background: #2563eb; }
+.dashboard-card.sales { background: #1e40af; }
+.dashboard-card.customers { background: #0ea5e9; }
+.dashboard-card.reports { background: #6366f1; }
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.card-desc {
+  font-size: 1rem;
+  opacity: 0.92;
+}
+/* Dashboard styles */
+
+.dashboard {
+  background: #f9fafb;
+  padding: 24px 24px 18px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 100%;
+  margin-bottom: 24px;
+}
+.dashboard h2 {
+  text-align: center;
+  color: #2a3b4c;
+  margin-bottom: 22px;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.dashboard-cards {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.dashboard {
+  background: transparent;
+  padding: 38px 12px 38px 12px;
+  border-radius: 0 18px 18px 0;
+  min-width: 0;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+.dashboard-icon {
+  font-size: 2.1rem;
+  margin-right: 6px;
+}
+.dashboard-label {
+  font-size: 1.05rem;
+  color: #2563eb;
+  font-weight: 500;
+}
+.dashboard-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 2px;
+}
+
+/* ProductForm styles */
+.product-form {
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  width: 100%;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.product-form input,
+.product-form textarea {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.product-form button {
+  width: 100%;
+  margin-top: 8px;
+}
