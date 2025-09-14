@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Lihotetsomaseka901019383-wings-cafe/static/css/main.3c9db53e.css",
+    "main.js": "/Lihotetsomaseka901019383-wings-cafe/static/js/main.800bb05e.js",
+    "static/js/453.287cbb1b.chunk.js": "/Lihotetsomaseka901019383-wings-cafe/static/js/453.287cbb1b.chunk.js",
+    "index.html": "/Lihotetsomaseka901019383-wings-cafe/index.html",
+    "main.3c9db53e.css.map": "/Lihotetsomaseka901019383-wings-cafe/static/css/main.3c9db53e.css.map",
+    "main.800bb05e.js.map": "/Lihotetsomaseka901019383-wings-cafe/static/js/main.800bb05e.js.map",
+    "453.287cbb1b.chunk.js.map": "/Lihotetsomaseka901019383-wings-cafe/static/js/453.287cbb1b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c9db53e.css",
+    "static/js/main.800bb05e.js"
+  ]
+}
